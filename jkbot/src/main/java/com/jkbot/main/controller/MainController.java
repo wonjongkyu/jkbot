@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Handles requests for the application home page.
+ * Handles requests for the application home page. 
  */
 @RequestMapping("/main")
 @Controller
