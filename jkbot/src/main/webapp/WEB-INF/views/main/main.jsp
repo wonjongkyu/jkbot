@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
+    
+<script src="<c:url value='js/views/main/main.js'/>"></script>
+
 <div id="page-wrapper" class="gray-bg">
 	<div class="row border-bottom">
 		<nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
@@ -128,8 +131,12 @@
 	</div>
 
 	<div class="wrapper wrapper-content  animated fadeInRight">
-		 <%@include file="/WEB-INF/views/ticker/bithumbTicker.jsp"%>	<!--  빗썸 시세 -->
-		 <%@include file="/WEB-INF/views/trade/autoBuy.jsp"%>			<!--  빗썸 자동 매수 -->
+		<!--  빗썸 시세 -->
+		<%@include file="/WEB-INF/views/ticker/bithumbTicker.jsp"%>	
+		<!--  빗썸 개인 계좌 정보 조회 -->		
+		<%@include file="/WEB-INF/views/info/account/bithumbInfoAccount.jsp"%>	
+		<!--  빗썸 자동 매수 -->
+		<%@include file="/WEB-INF/views/trade/autoBuy.jsp"%>				
 	</div>
 </div>
         

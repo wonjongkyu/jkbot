@@ -9,9 +9,10 @@
 	- 전일대비 퍼센트를 입력하게 되면 매수 가격이 자동으로 계산됨
 	- 숫자만 입력 가능하도록 변경
 -->
+                        
 <form method="get" class="form-horizontal">
-	<div class="row col-md-12">	<!--  자동 매도,매수 Start -->
-		<div>
+	<div class="row">	<!--  자동 매도,매수 Start -->
+		<div class="col-md-10">
 			<div class="tabs-container">
 	            <ul class="nav nav-tabs">
 	                <li class="active"><a data-toggle="tab" href="#tab-1"> 자동 매수 <small>v 0.1</small></a></li>

@@ -7,13 +7,14 @@
  */
 package com.jkbot.rest.bithumb.api; 
 
+import java.util.HashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.jkbot.common.util.http.Api_Client;
@@ -29,22 +30,24 @@ import com.jkbot.rest.bithumb.model.ticker.BithumbTickerResultVO;
  * @version : 
  * @author : jongkyu
  */
-@ResponseBody
-@RequestMapping("/bithumb/publicapi")
+@RequestMapping("/bithumb/privateapi")
 @Controller
-public class BithumbPublicRest {
-	private static final Logger logger = LoggerFactory.getLogger(BithumbPublicRest.class);
+public class BithumbPrivateRestTest {
+	private static final Logger logger = LoggerFactory.getLogger(BithumbPrivateRest.class);
 	 
-	@RequestMapping(value = "/ticker/{currency}", method = RequestMethod.GET)
-	public BithumbTickerResultVO getTicker(@PathVariable String currency) {
+	
+	public static void main(String[] args) {
 		BithumbTickerResultVO bithumbVO = null;
 		
-		String apiConnectKey = "";
-    	String apiSecretKey = "";
+		String apiConnectKey = "601748af2ab68a0c155ef693d253a899";
+    	String apiSecretKey = "d9f965e15b4f93ac5b1f547237847247";
 		Api_Client api = new Api_Client(apiConnectKey, apiSecretKey);
 		
+		HashMap<String, String> rgParams = new HashMap<String, String>();
+		rgParams.put("currency", "QTUM");
+		
 		try {
-		    String result = api.callApi("/public/ticker/"+currency, null);
+		    String result = api.callApi("/info/account", rgParams);
 		    System.out.println(result);
 		    
 		    Gson gson = new Gson();
@@ -54,7 +57,5 @@ public class BithumbPublicRest {
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
-		return bithumbVO;
 	}
-	
 }

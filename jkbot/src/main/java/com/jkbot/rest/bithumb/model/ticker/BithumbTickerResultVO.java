@@ -7,8 +7,9 @@
  */
 package com.jkbot.rest.bithumb.model.ticker; 
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.jkbot.rest.common.model.RestCommonVO;
 
 
 /**
@@ -22,20 +23,12 @@ import org.codehaus.jackson.annotate.JsonProperty;
  * @author : jongkyu
  */
 
-public class BithumbTickerResultVO {
-	@JsonProperty("status")
-	private String status;				// 결과 상태 코드 (정상 : 0000, 정상이외 코드는 에러 코드 참조)
+public class BithumbTickerResultVO extends RestCommonVO{
 	@JsonProperty("data")
 	private BithumbTickerListVO data;
 	@JsonProperty("date")
 	private String date;
-	
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	 
 	public BithumbTickerListVO getData() {
 		return data;
 	}

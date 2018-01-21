@@ -38,7 +38,6 @@
 	 <script src="js/inspinia.js"></script>
 	 <script src="js/plugins/pace/pace.min.js"></script>
 	 <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
-	 <script src="js/views/main/main.js"></script>
 </head>
 
 <body>

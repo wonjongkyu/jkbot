@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script src="<c:url value='js/views/ticker/ticker.js'/>"></script>
+
 <!--  DashBoard 현재 시세 -->
 <div class="row col-lg-12">
    <div>

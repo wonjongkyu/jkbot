@@ -18,7 +18,7 @@ package com.jkbot.rest.bithumb.model.ticker;
  * @version : 
  * @author : jongkyu
  */
-public class BithumbTickerVO {
+public class BithumbTicker {
 	private String currency_name;	// 코인 종류
 	private String opening_price;	// 최근 24시간 내 시작 거래금액
 	private String closing_price;	// 최근 24시간 내 마지막 거래금액

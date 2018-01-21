@@ -7,7 +7,6 @@
  */
 package com.jkbot.rest.bithumb.model.ticker; 
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 
@@ -23,114 +22,114 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class BithumbTickerListVO {
 	@JsonProperty("BTC")
-	private BithumbTickerVO BTC;	// 비트코인
+	private BithumbTicker BTC;	// 비트코인
 	@JsonProperty("ETH")
-	private BithumbTickerVO ETH;	// 이더리움
+	private BithumbTicker ETH;	// 이더리움
 	@JsonProperty("DASH")
-	private BithumbTickerVO DASH;	// 대시
+	private BithumbTicker DASH;	// 대시
 	@JsonProperty("LTC")
-	private BithumbTickerVO LTC;	// 라이트 코인
+	private BithumbTicker LTC;	// 라이트 코인
 	@JsonProperty("ETC")
-	private BithumbTickerVO ETC;	// 이더리움 클래식
+	private BithumbTicker ETC;	// 이더리움 클래식
 	@JsonProperty("XRP")
-	private BithumbTickerVO XRP;	// 리플
+	private BithumbTicker XRP;	// 리플
 	@JsonProperty("BCH")
-	private BithumbTickerVO BCH;	// 비트코인 캐시
+	private BithumbTicker BCH;	// 비트코인 캐시
 	@JsonProperty("XMR")
-	private BithumbTickerVO XMR;	// 모네로
+	private BithumbTicker XMR;	// 모네로
 	@JsonProperty("ZEC")
-	private BithumbTickerVO ZEC;	// 제트캐시
+	private BithumbTicker ZEC;	// 제트캐시
 	@JsonProperty("QTUM")
-	private BithumbTickerVO QTUM;	// 퀀텀
+	private BithumbTicker QTUM;	// 퀀텀
 	@JsonProperty("BTG")
-	private BithumbTickerVO BTG;	// 비트코인 골드
+	private BithumbTicker BTG;	// 비트코인 골드
 	@JsonProperty("EOS")
-	private BithumbTickerVO EOS;	// 이오스
+	private BithumbTicker EOS;	// 이오스
 	
 	
 	
-	public BithumbTickerVO getBTC() {
+	public BithumbTicker getBTC() {
 		BTC.setCurrency_name("비트코인");
 		return BTC;
 	}
-	public void setBTC(BithumbTickerVO bTC) {
+	public void setBTC(BithumbTicker bTC) {
 		BTC = bTC;
 	}
-	public BithumbTickerVO getETH() {
+	public BithumbTicker getETH() {
 		ETH.setCurrency_name("이더리움");
 		return ETH;
 	}
-	public void setETH(BithumbTickerVO eTH) {
+	public void setETH(BithumbTicker eTH) {
 		ETH = eTH;
 	}
-	public BithumbTickerVO getDASH() {
+	public BithumbTicker getDASH() {
 		DASH.setCurrency_name("대시");
 		return DASH;
 	}
-	public void setDASH(BithumbTickerVO dASH) {
+	public void setDASH(BithumbTicker dASH) {
 		DASH = dASH;
 	}
-	public BithumbTickerVO getLTC() {
+	public BithumbTicker getLTC() {
 		LTC.setCurrency_name("라이트코인");
 		return LTC;
 	}
-	public void setLTC(BithumbTickerVO lTC) {
+	public void setLTC(BithumbTicker lTC) {
 		LTC = lTC;
 	}
-	public BithumbTickerVO getETC() {
+	public BithumbTicker getETC() {
 		ETC.setCurrency_name("이더리움 클래식");
 		return ETC;
 	}
-	public void setETC(BithumbTickerVO eTC) {
+	public void setETC(BithumbTicker eTC) {
 		ETC = eTC;
 	}
-	public BithumbTickerVO getXRP() {
+	public BithumbTicker getXRP() {
 		XRP.setCurrency_name("리플");
 		return XRP;
 	}
-	public void setXRP(BithumbTickerVO xRP) {
+	public void setXRP(BithumbTicker xRP) {
 		XRP = xRP;
 	}
-	public BithumbTickerVO getBCH() {
+	public BithumbTicker getBCH() {
 		BCH.setCurrency_name("비트코인 캐시");
 		return BCH;
 	}
-	public void setBCH(BithumbTickerVO bCH) {
+	public void setBCH(BithumbTicker bCH) {
 		BCH = bCH;
 	}
-	public BithumbTickerVO getXMR() {
+	public BithumbTicker getXMR() {
 		XMR.setCurrency_name("모네로");
 		return XMR;
 	}
-	public void setXMR(BithumbTickerVO xMR) {
+	public void setXMR(BithumbTicker xMR) {
 		XMR = xMR;
 	}
-	public BithumbTickerVO getZEC() {
+	public BithumbTicker getZEC() {
 		ZEC.setCurrency_name("제트캐시");
 		return ZEC;
 	}
-	public void setZEC(BithumbTickerVO zEC) {
+	public void setZEC(BithumbTicker zEC) {
 		ZEC = zEC;
 	}
-	public BithumbTickerVO getQTUM() {
+	public BithumbTicker getQTUM() {
 		QTUM.setCurrency_name("퀀텀");
 		return QTUM;
 	}
-	public void setQTUM(BithumbTickerVO qTUM) {
+	public void setQTUM(BithumbTicker qTUM) {
 		QTUM = qTUM;
 	}
-	public BithumbTickerVO getBTG() {
+	public BithumbTicker getBTG() {
 		BTG.setCurrency_name("비트코인 골드");
 		return BTG;
 	}
-	public void setBTG(BithumbTickerVO bTG) {
+	public void setBTG(BithumbTicker bTG) {
 		BTG = bTG;
 	}
-	public BithumbTickerVO getEOS() {
+	public BithumbTicker getEOS() {
 		EOS.setCurrency_name("이오스");
 		return EOS;
 	}
-	public void setEOS(BithumbTickerVO eOS) {
+	public void setEOS(BithumbTicker eOS) {
 		EOS = eOS;
 	}
 	

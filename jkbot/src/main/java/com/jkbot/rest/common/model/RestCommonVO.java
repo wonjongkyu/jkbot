@@ -19,6 +19,15 @@ package com.jkbot.rest.common.model;
  * @author : jongkyu
  */
 public class RestCommonVO {
-	private String status;
+	private String status;	// 결과 상태 코드 (정상 : 0000, 정상이외 코드는 에러 코드 참조)
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	
 }
