@@ -10,6 +10,7 @@
        <put-attribute name="left" value="/WEB-INF/views/tiles/template/left.jsp" />  
        <put-attribute name="body" value="" />  
        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/footer.jsp" />  
+       <put-attribute name="right" value="/WEB-INF/views/tiles/template/right.jsp" />  
    </definition>  
   
    <!-- Home Page -->
