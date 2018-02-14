@@ -22,22 +22,27 @@
     <link href="<c:url value='/css/style.css'/>" rel="stylesheet">
     
      <!-- Mainly scripts -->
-	 <script src="js/jquery-3.1.1.min.js"></script>
-	 <script src="js/bootstrap.min.js"></script>
-	 <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-	 <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	 <script src="<c:url value='/js/jquery-3.1.1.min.js'/>"></script>
+	 <script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+	 <script src="<c:url value='/js/plugins/metisMenu/jquery.metisMenu.js'/>"></script>
+	 <script src="<c:url value='/js/plugins/slimscroll/jquery.slimscroll.min.js'/>"></script>
 	
 	 <!-- Peity -->
-	 <script src="js/plugins/peity/jquery.peity.min.js"></script>
+	 <script src="<c:url value='/js/plugins/peity/jquery.peity.min.js'/>"></script>
 	
 	 <!-- jqGrid -->
-	 <script src="js/plugins/jqGrid/i18n/grid.locale-en.js"></script>
-	 <script src="js/plugins/jqGrid/jquery.jqGrid.min.js"></script>
+	 <script src="<c:url value='/js/plugins/jqGrid/i18n/grid.locale-en.js'/>"></script>
+	 <script src="<c:url value='/js/plugins/jqGrid/jquery.jqGrid.min.js'/>"></script>
 	
 	 <!-- Custom and plugin javascript -->
-	 <script src="js/inspinia.js"></script>
-	 <script src="js/plugins/pace/pace.min.js"></script>
-	 <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+	 <script src="<c:url value='/js/inspinia.js'/>"></script>
+	 <script src="<c:url value='/js/plugins/pace/pace.min.js'/>"></script>
+	 <script src="<c:url value='/js/plugins/jquery-ui/jquery-ui.min.js'/>"></script>
+	 
+	<!-- contextpath 가져와서 변수 정의 하고.. -->
+	<c:set var="contextPath" value="<%= request.getContextPath()%>"></c:set>  
+	<c:set var="imgContextPath" value="${contextPath}/img"></c:set> 
+	
 </head>
 
 <body>

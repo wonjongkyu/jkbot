@@ -38,6 +38,12 @@
 				<beans:value>classpath:tiles/definitions.xml</beans:value> 
 			</beans:list> 
 		</beans:property> 
-	</beans:bean>
+	</beans:bean>	
+	
+	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">    
+        <beans:property name="locations" value="classpath:config/config.properties"/>    
+        <beans:property name="fileEncoding" value="UTF-8"/>
+    </beans:bean>
+
 	
 </beans:beans>

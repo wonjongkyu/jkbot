@@ -5,7 +5,7 @@
  * This software is the confidential and proprietary information
  * of yysvip.tistory.com.,LTD. ("Confidential Information").
  */
-package com.jkbot.rest.bithumb.api; 
+package com.jkbot.rest.coinnest.api; 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,16 +31,16 @@ import com.jkbot.rest.bithumb.model.ticker.BithumbTickerResultVO;
  * @author : jongkyu
  */
 @ResponseBody
-@RequestMapping("/bithumb/publicapi")
+@RequestMapping("/coinnest/publicapi")
 @Controller
-public class BithumbPublicRest {
-	private static final Logger logger = LoggerFactory.getLogger(BithumbPublicRest.class);
+public class CoinnestPublicRest {
+	private static final Logger logger = LoggerFactory.getLogger(CoinnestPublicRest.class);
     
-    @Value("${bithumb.apiUrl}")
+	@Value("${coinnest.apiUrl}")
     private String apiUrl ;
-    @Value("${bithumb.apiConnectKey}")
+    @Value("${coinnest.apiConnectKey}")
     private String apiConnectKey ;
-    @Value("${bithumb.apiSecretKey}")
+    @Value("${coinnest.apiSecretKey}")
     private String apiSecretKey;
 	 
 	@RequestMapping(value = "/ticker/{currency}", method = RequestMethod.GET)
@@ -49,7 +49,7 @@ public class BithumbPublicRest {
 		Api_Client api = new Api_Client(apiUrl, apiConnectKey, apiSecretKey);
 		
 		try {
-		    String result = api.callApi("/public/ticker/"+currency, null);
+		    String result = api.callApi("/api/pub/ticker/coin="+currency, null);
 		    System.out.println(result);
 		    
 		    Gson gson = new Gson();

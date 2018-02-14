@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +38,13 @@ import com.jkbot.rest.bithumb.model.info.BithumbInfoBalance;
 @Controller
 public class BithumbPrivateRest {
 	private static final Logger logger = LoggerFactory.getLogger(BithumbPrivateRest.class);
-	 
+
+    @Value("${bithumb.apiUrl}")
+    private String apiUrl ;
+    @Value("${bithumb.apiConnectKey}")
+    private String apiConnectKey ;
+    @Value("${bithumb.apiSecretKey}")
+    private String apiSecretKey;
 	
 	/**
 	 * <pre>
@@ -59,10 +66,8 @@ public class BithumbPrivateRest {
 	@RequestMapping(value = "/info/account/{currency}", method = RequestMethod.GET)
 	public BithumbInfoAccount getInfoAccount(@PathVariable String currency) {
 		BithumbInfoAccount bithumbVO = null;
-		
-		String apiConnectKey = "601748af2ab68a0c155ef693d253a899";
-    	String apiSecretKey = "d9f965e15b4f93ac5b1f547237847247";
-		Api_Client api = new Api_Client(apiConnectKey, apiSecretKey);
+
+		Api_Client api = new Api_Client(apiUrl, apiConnectKey, apiSecretKey);
 		
 		HashMap<String, String> rgParams = new HashMap<String, String>();
 		rgParams.put("currency", currency);
@@ -102,9 +107,7 @@ public class BithumbPrivateRest {
 	public BithumbInfoBalance getInfoBalance(@PathVariable String currency) {
 		BithumbInfoBalance bithumbVO = null;
 		
-		String apiConnectKey = "";
-    	String apiSecretKey = "";
-		Api_Client api = new Api_Client(apiConnectKey, apiSecretKey);
+		Api_Client api = new Api_Client(apiUrl, apiConnectKey, apiSecretKey);
 		
 		HashMap<String, String> rgParams = new HashMap<String, String>();
 		rgParams.put("currency", currency);

@@ -1,10 +1,14 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="contextPath" value="<%= request.getContextPath()%>"></c:set>  
+	
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element"> <span>
-                        <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        <img alt="image" class="img-circle" src="${contextPath}/img/profile_small.jpg" />
                          </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
@@ -22,8 +26,12 @@
                 </div>
             </li>
             <li class="active">
-                <a href="main"><i class="fa fa-th-large"></i> <span class="nav-label">DashBoard</span></a>
+                <a href="${contextPath}/main"><i class="fa fa-th-large"></i> <span class="nav-label">DashBoard</span></a>
             </li>
+            <li>
+                <a href="${contextPath}/price/compare"><i class="fa fa-th-large"></i> <span class="nav-label">시세 비교</span></a>
+            </li>
+            
             <li>
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

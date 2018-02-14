@@ -25,13 +25,15 @@ import org.apache.commons.codec.binary.Hex;
 
 @SuppressWarnings("unused")
 public class Api_Client {
-    protected String api_url = "https://api.bithumb.com";
+
+    protected String api_url;
     protected String api_key;
     protected String api_secret;
 
-    public Api_Client(String api_key, String api_secret) {
-	this.api_key = api_key;
-	this.api_secret = api_secret;
+    public Api_Client(String api_url, String api_key, String api_secret) {
+    	this.api_url = api_url;
+		this.api_key = api_key;
+		this.api_secret = api_secret;
     }
 
     /**
@@ -75,12 +77,14 @@ public class Api_Client {
 		    if (strMemod.toUpperCase().equals("POST")) {
 	
 			request = new HttpRequest(strHost, "POST");
-			request.readTimeout(10000);
+			request.readTimeout(2000);
 	
 			System.out.println("POST ==> " + request.url());
 	
 			if (httpHeaders != null && !httpHeaders.isEmpty()) {
 			    httpHeaders.put("api-client-type", "2");
+			    httpHeaders.put("cookie", "2");
+			    httpHeaders.put("Access-Control-Allow-Origin", "*");	// 추가
 			    request.headers(httpHeaders);
 			    System.out.println(httpHeaders.toString());
 			}
@@ -91,7 +95,7 @@ public class Api_Client {
 		    } else {
 			request = HttpRequest.get(strHost
 				+ Util.mapToQueryString(rgParams));
-			request.readTimeout(10000);
+			request.readTimeout(2000);
 	
 			System.out.println("Response was: " + response);
 		    }
@@ -152,7 +156,12 @@ public class Api_Client {
 		String str = endpoint + ";"	+ strData + ";" + nNonce;
 		//String str = "/info/balance;order_currency=BTC&payment_currency=KRW&endpoint=%2Finfo%2Fbalance;272184496";
 		
-        String encoded = asHex(hmacSha512(str, apiSecret));
+		// public일때는 제외
+		System.out.println(str);
+		String encoded = "";
+		if(!str.contains("/pub")){
+			encoded = asHex(hmacSha512(str, apiSecret));
+		}
 		
 		System.out.println("strData was: " + str);
 		System.out.println("apiSecret was: " + apiSecret);

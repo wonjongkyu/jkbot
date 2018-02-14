@@ -5,7 +5,7 @@
  * This software is the confidential and proprietary information
  * of yysvip.tistory.com.,LTD. ("Confidential Information").
  */
-package com.jkbot.rest.bithumb.api; 
+package com.jkbot.rest.upbit.api; 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,23 +30,24 @@ import com.jkbot.rest.bithumb.model.ticker.BithumbTickerResultVO;
  * @version : 
  * @author : jongkyu
  */
+// /v1/crix/candles/minutes/1?code=CRIX.UPBIT.KRW-
 @ResponseBody
-@RequestMapping("/bithumb/publicapi")
+@RequestMapping("/upbit/publicapi")
 @Controller
-public class BithumbPublicRest {
-	private static final Logger logger = LoggerFactory.getLogger(BithumbPublicRest.class);
+public class UpbitPublicRest {
+	private static final Logger logger = LoggerFactory.getLogger(UpbitPublicRest.class);
     
-    @Value("${bithumb.apiUrl}")
+	@Value("${upbit.apiUrl}")
     private String apiUrl ;
-    @Value("${bithumb.apiConnectKey}")
+    @Value("${upbit.apiConnectKey}")
     private String apiConnectKey ;
-    @Value("${bithumb.apiSecretKey}")
+    @Value("${upbit.apiSecretKey}")
     private String apiSecretKey;
 	 
 	@RequestMapping(value = "/ticker/{currency}", method = RequestMethod.GET)
 	public BithumbTickerResultVO getTicker(@PathVariable String currency) {
 		BithumbTickerResultVO bithumbVO = null;
-		Api_Client api = new Api_Client(apiUrl, apiConnectKey, apiSecretKey);
+		Api_Client api = new Api_Client(apiUrl,apiConnectKey, apiSecretKey);
 		
 		try {
 		    String result = api.callApi("/public/ticker/"+currency, null);

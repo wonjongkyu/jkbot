@@ -5,6 +5,10 @@
 			event.preventDefault();
 		});*/
 		getBithumbTicker();
+		setInterval(function(){
+			
+			getBithumbTicker();
+		}, 5000);
 	});
 	
 	
@@ -17,11 +21,12 @@
 			url : "/jkbot/bithumb/publicapi/ticker/ALL",
 			// data : JSON.stringify(data),
 			dataType : 'json',
-			timeout : 100000,
+			timeout : 5000,
 			success : function(data) {
-				console.log("SUCCESS: ", data);
+				$("#bithumbTicker_table").jqGrid("GridUnload");
+				// console.log("SUCCESS: ", data);
 				var result = data;
-				$("#bithumbTicker").empty(); // 초기화, empty 대체 가능?
+				$("#bithumbTicker_table").html(result); // 초기화, empty 대체 가능?
 				
 				var resultJsonArray = new Array();
 				$.each(result.data, function(){
@@ -42,10 +47,10 @@
 		        $("#bithumbTicker_table").jqGrid({
 		            data: resultJsonArray,
 		            datatype: "local",
-		            height: 280,
+		            height: 340,
 		            autowidth: true,
 		            shrinkToFit: true,
-		            rowNum: 10,
+		            rowNum: 15,
 		            rowList: [10, 20, 30],
 		            colNames: ['코인', '시가총액(임시)', '전일종가', '현재가', '전일대비(금액)','전일대비(%)', 'temp'],
 		            colModel: [
@@ -55,7 +60,7 @@
 							thousandsSeparator:"," <--천 단위마다 ,를 찍음
 							decimalPlaces: 0  <-- 소수점 자리 0이면 100, 1이면 100.0, 2면 100.00
 		                */
-		                {name:'coinName',		index:'coinName', 		editable: true, width:70, 	search:true},
+		                {name:'coinName',		index:'coinName', 		editable: true, width:70, 	sortable:true, search:true},
 	                    {name:'aggregateValue',	index:'aggregateValue', editable: true, width:80, 	align:"right",	sorttype: "int", 	formatter: "currency", formatoptions:{thousandsSeparator:",", decimalPlaces: 0}},
 	                    {name:'openingPrice',	index:'openingPrice', 	editable: true, width:80, 	align:"right",	sorttype: "int", 	formatter: "currency", formatoptions:{thousandsSeparator:",", decimalPlaces: 0}},
 	                    {name:'realtimePrice',	index:'realtimePrice', 	editable: true, width:80, 	align:"right",	sorttype: "int", 	formatter: "currency", formatoptions:{thousandsSeparator:",", decimalPlaces: 0}},
@@ -94,7 +99,7 @@
 		            	}
 		            }
 		            
-		        });
+		        }).trigger("reloadGrid");
 		        
 		        // Add responsive to jqGrid
 		        $(window).bind('resize', function () {
