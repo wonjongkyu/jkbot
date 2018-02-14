@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,14 @@ import com.jkbot.rest.bithumb.model.ticker.BithumbTickerResultVO;
 @Controller
 public class BithumbPrivateRestTest {
 	private static final Logger logger = LoggerFactory.getLogger(BithumbPrivateRest.class);
-	 
+	
+	 @Value("${bithumb.apiUrl}")
+	 private String apiUrl ;
+	 @Value("${bithumb.apiConnectKey}")
+	 private String apiConnectKey ;
+	 @Value("${bithumb.apiSecretKey}")
+	 private String apiSecretKey;
+    
 	
 	public static void main(String[] args) {
 		BithumbTickerResultVO bithumbVO = null;

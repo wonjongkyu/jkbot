@@ -10,7 +10,7 @@ public class MainTest {
     public static void main(String args[]) {
     	String apiConnectKey = "353493cb9695210c2bb81c5018b61fb2";
     	String apiSecretKey = "e25f62ca71754c6e2e083b4345a0df23";
-		Api_Client api = new Api_Client(apiConnectKey, apiSecretKey);
+		Api_Client api = new Api_Client(apiConnectKey, apiSecretKey, "");
 	
 		HashMap<String, String> rgParams = new HashMap<String, String>();
 		rgParams.put("order_currency", "BTC");
