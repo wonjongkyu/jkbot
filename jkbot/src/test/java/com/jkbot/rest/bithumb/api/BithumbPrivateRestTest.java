@@ -37,19 +37,17 @@ public class BithumbPrivateRestTest {
 	private static final Logger logger = LoggerFactory.getLogger(BithumbPrivateRest.class);
 	
 	 @Value("${bithumb.apiUrl}")
-	 private String apiUrl ;
+	 static private String apiUrl ;
 	 @Value("${bithumb.apiConnectKey}")
-	 private String apiConnectKey ;
+	 static  private String apiConnectKey ;
 	 @Value("${bithumb.apiSecretKey}")
-	 private String apiSecretKey;
+	 static private String apiSecretKey;
     
 	
 	public static void main(String[] args) {
 		BithumbTickerResultVO bithumbVO = null;
-		
-		String apiConnectKey = "601748af2ab68a0c155ef693d253a899";
-    	String apiSecretKey = "d9f965e15b4f93ac5b1f547237847247";
-		Api_Client api = new Api_Client(apiConnectKey, apiSecretKey);
+
+		Api_Client api = new Api_Client(apiUrl, apiConnectKey, apiSecretKey);
 		
 		HashMap<String, String> rgParams = new HashMap<String, String>();
 		rgParams.put("currency", "QTUM");
